@@ -1,0 +1,49 @@
+//Verónica Chávez, me revisó Brenda Tiburcio saqué 5/5
+
+package com.generation;
+
+import java.util.Scanner;
+
+public class Codigo4 {
+
+    public static void main(String[] args) {
+        // Crear un objeto Scanner para leer la entrada del usuario
+        Scanner s = new Scanner(System.in);
+
+        // Solicitar la entrada del jugador 1
+        System.out.print("Turno del jugador 1 (introduzca piedra, papel o tijeras): ");
+        String j1 = s.nextLine();
+
+        // Solicitar la entrada del jugador 2
+        System.out.print("Turno del jugador 2 (introduzca piedra, papel o tijeras): ");
+        String j2 = s.nextLine();
+
+        // Comparar las entradas de los jugadores para determinar el resultado
+        if (j1.equals(j2)) {  // Usar equals en lugar de '=='
+            System.out.println("Empate");
+        } else {
+            int g = 2;  // Inicializar g a 2, se asume que el jugador 2 gana por defecto
+            switch (j1) {
+                case "piedra":
+                    if (j2.equals("tijeras")) {  // Usar equals en lugar de '=='
+                        g = 1;
+                    }
+                    break;  // Añadir break para cada caso
+                case "papel":
+                    if (j2.equals("piedra")) {  // Usar equals en lugar de '=='
+                        g = 1;
+                    }
+                    break;  // Añadir break para cada caso
+                case "tijeras":
+                    if (j2.equals("papel")) {  // Usar equals en lugar de '=='
+                        g = 1;
+                    }
+                    break;  // Añadir break para cada caso
+                default:
+                    System.out.println("Entrada inválida");  // Manejar entradas inválidas
+                    return;  // Salir del método main si hay entrada inválida
+            }
+            System.out.println("Gana el jugador " + g);
+        }
+    }
+}
